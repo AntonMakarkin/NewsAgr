@@ -1,5 +1,6 @@
 import NewsArticlesGrid from "@/components/NewsArticlesGrid";
 import { NewsArticle, NewsResponse } from "@/models/NewsArticles";
+import Head from "next/head";
 import { FC, FormEvent, useState } from "react";
 
 
@@ -32,19 +33,24 @@ const SearchNewsPage:FC = () => {
     }
 
     return (
-        <main>
-            <h1>Search News</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="searchQuery" placeholder="Search politics, sports, etc..."/>
-                <button type="submit" disabled={searchResultsLoading}>
-                    Search
-                </button>
-            </form>
-            {searchResultsLoading && <p>Loading</p>}
-            {searchResultsLoadingIsError && <p>Something went wrong</p>}
-            {searchResults?.length === 0 && <p>Nothing found. Try a different query</p>}
-            {searchResults && <NewsArticlesGrid articles={searchResults}/>}
-        </main>
+        <>
+            <Head>
+                <title key="title">Search News - News Aggregator</title>
+            </Head>
+            <main>
+                <h1>Search News</h1>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="searchQuery" placeholder="Search politics, sports, etc..."/>
+                    <button type="submit" disabled={searchResultsLoading}>
+                        Search
+                    </button>
+                </form>
+                {searchResultsLoading && <p>Loading</p>}
+                {searchResultsLoadingIsError && <p>Something went wrong</p>}
+                {searchResults?.length === 0 && <p>Nothing found. Try a different query</p>}
+                {searchResults && <NewsArticlesGrid articles={searchResults}/>}
+            </main>
+        </>
     )
 };
 

@@ -1,3 +1,4 @@
+import NavBar from '@/components/NavBar';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Montserrat } from 'next/font/google';
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='max-sm:px-2 px-4'>
+        <NavBar/>
         <Component {...pageProps} />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { NewsArticle } from "@/models/NewsArticles";
-import { noImageUrl } from "@/constants/constants";
+import placeholder from "../public/placeholder.jpg" 
 import Image from "next/image";
 
 type NewsArticleEntryProps = {
@@ -8,7 +8,7 @@ type NewsArticleEntryProps = {
 };
 
 const NewsArticleItem:FC<NewsArticleEntryProps> = ({ article: { title, description, url, urlToImage } }) => {
-    const validImageUrl = (urlToImage?.startsWith("http://") || urlToImage?.startsWith("https://")) ? urlToImage : noImageUrl;
+    const validImageUrl = (urlToImage?.startsWith("http://") || urlToImage?.startsWith("https://")) ? urlToImage : placeholder.src;
     const [imageSrc, setImageSrc] = useState<string>(validImageUrl);
 
 
@@ -17,11 +17,11 @@ const NewsArticleItem:FC<NewsArticleEntryProps> = ({ article: { title, descripti
                 <Image 
                     src={imageSrc} 
                     alt="News Image" 
-                    width={500} 
-                    height={300}
+                    width={400} 
+                    height={250}
                     placeholder="blur"
                     blurDataURL={imageSrc} 
-                    onError={() => setImageSrc(noImageUrl)}
+                    onError={() => setImageSrc(placeholder.src)}
                     className="object-cover h-40"/>
             <div className="py-4 px-4 flex flex-col grow">
                 <h2 className="font-bold mb-2">{title}</h2>
