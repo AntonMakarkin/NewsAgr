@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Montserrat } from 'next/font/google';
 import Head from 'next/head';
+import NextNProgress from 'nextjs-progressbar';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -15,10 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='max-sm:px-2 px-4'>
+      <NextNProgress/>
         <NavBar/>
         <Component {...pageProps} />
-      </div>
     </div>
   )
 }

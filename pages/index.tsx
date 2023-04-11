@@ -4,7 +4,6 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { GetServerSideProps } from 'next'
 import { NewsArticle, NewsResponse } from '@/models/NewsArticles'
-import NewsArticleItem from '@/components/NewsArticleItem'
 import NewsArticlesGrid from '@/components/NewsArticlesGrid'
 
 type BreakingNewsPageProps = {
@@ -26,8 +25,8 @@ const BreakingNewsPage:FC<BreakingNewsPageProps> = ({ newsArticles }) => {
       <Head>
         <title key="title">NewsAgr - Breaking News</title>
       </Head>
-      <main>
-        <h1>Breaking News</h1>
+      <main className="max-sm:px-2 max-sm:pt-2 px-10 pt-4">
+        <h1 className='text-3xl mb-5'>Breaking News</h1>
         <NewsArticlesGrid articles={newsArticles}/>
       </main>
     </>

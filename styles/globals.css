@@ -19,3 +19,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+option[value=""][disabled] {
+  display: none;
+}
